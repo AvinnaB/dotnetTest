@@ -1,0 +1,12 @@
+=========Sql table script for database===========
+
+CREATE TABLE [dbo].[Products](
+	ProductId [int] IDENTITY(1,1) NOT NULL,
+	ProductName [nvarchar](100) NOT NULL,
+	Price [decimal](18, 2) NOT NULL,
+	PostedDate [datetime] NULL DEFAULT (getdate()),
+	IsActive [int] NOT NULL,
+	RequestType [varchar](100) NULL,
+	RequestPrice [decimal](18, 2) NULL,
+	RequestDate [datetime] NULL
+)

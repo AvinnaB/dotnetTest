@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Product>
+
+@{ Layout = "_Layout"; ViewBag.Title = "All Orders";}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table table-sm table-striped table-bordered m-2">
+        <thead>
+            <tr>
+                <th>
+                    Product Id
+                </th>
+                <th>
+                    Product Name
+                </th>
+                <th>
+                    Price
+                </th>
+                <th>
+                    Posted Date
+                </th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Product in Model)
+            {
+                <tr>
+                    <td>
+                        @Product.ProductId
+                    </td>
+                    <td>
+                        @Product.ProductName
+                    </td>
+                    <td>
+                        @Product.Price
+                    </td>
+                    <td>
+                        @Product.PostedDate
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
